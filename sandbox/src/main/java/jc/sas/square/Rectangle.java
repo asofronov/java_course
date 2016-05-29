@@ -1,3 +1,5 @@
+package jc.sas.square;
+
 public class Rectangle {
     double b;
     double c;

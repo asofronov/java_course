@@ -1,3 +1,5 @@
+package jc.sas.points;
+
 public class Distance {
 
 
