@@ -26,11 +26,21 @@ public class GroupCreationTests {
 
 
         createGroup();
-        typeGroupName();
-        typeGroupHeader();
-        typeGroupFooter();
+        fillGroupData(new GroupData("TestFooter", "TestHeader", "testGroup"));
         submit();
         backToGroups();
+    }
+
+    private void fillGroupData(GroupData groupData) {
+        wd.findElement(By.name("group_footer")).click();
+        wd.findElement(By.name("group_footer")).clear();
+        wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+        wd.findElement(By.name("group_header")).click();
+        wd.findElement(By.name("group_header")).clear();
+        wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
+        wd.findElement(By.name("group_name")).click();
+        wd.findElement(By.name("group_name")).clear();
+        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
     }
 
     private void login() {
@@ -51,23 +61,6 @@ public class GroupCreationTests {
         wd.findElement(By.name("submit")).click();
     }
 
-    private void typeGroupFooter() {
-        wd.findElement(By.name("group_footer")).click();
-        wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys("TestFooter");
-    }
-
-    private void typeGroupHeader() {
-        wd.findElement(By.name("group_header")).click();
-        wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys("TestHeader");
-    }
-
-    private void typeGroupName() {
-        wd.findElement(By.name("group_name")).click();
-        wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys("testGroup");
-    }
 
     private void createGroup() {
         wd.findElement(By.name("new")).click();
