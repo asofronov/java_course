@@ -1,4 +1,4 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.model;
 
 public class GroupData {
     private final String footer;

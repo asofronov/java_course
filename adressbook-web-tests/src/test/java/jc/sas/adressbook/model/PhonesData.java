@@ -1,4 +1,4 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.model;
 
 public class PhonesData {
     private final String homePhone1;

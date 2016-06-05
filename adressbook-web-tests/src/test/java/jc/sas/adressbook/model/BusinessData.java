@@ -1,4 +1,4 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.model;
 
 public class BusinessData {
     private final String address1;

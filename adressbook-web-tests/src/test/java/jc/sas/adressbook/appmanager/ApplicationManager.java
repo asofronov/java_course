@@ -1,5 +1,6 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.appmanager;
 
+import jc.sas.adressbook.model.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,14 +24,14 @@ public class ApplicationManager {
         }
     }
 
-    protected void init() {
+    public void init() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         login();
     }
 
-    private void login() {
+    public void login() {
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
         wd.findElement(By.name("user")).sendKeys("admin");
@@ -40,15 +41,15 @@ public class ApplicationManager {
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
     }
 
-    protected void backToGroups() {
+    public void backToGroups() {
         wd.findElement(By.linkText("group page")).click();
     }
 
-    protected void submit() {
+    public void submit() {
         wd.findElement(By.name("submit")).click();
     }
 
-    protected void createGroup() {
+    public void createGroup() {
         wd.findElement(By.name("new")).click();
     }
 
@@ -56,15 +57,15 @@ public class ApplicationManager {
         wd.findElement(By.linkText("groups")).click();
     }
 
-    protected void backHomePage() {
+    public void backHomePage() {
         wd.findElement(By.linkText("home page")).click();
     }
 
-    protected void confirmation() {
+    public void confirmation() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    protected void fillOtherData(OtherData otherData) {
+    public void fillOtherData(OtherData otherData) {
         wd.findElement(By.name("homepage")).click();
         wd.findElement(By.name("homepage")).clear();
         wd.findElement(By.name("homepage")).sendKeys(otherData.getWebsite());
@@ -79,7 +80,7 @@ public class ApplicationManager {
         wd.findElement(By.name("notes")).sendKeys(otherData.getNoteText());
     }
 
-    protected void fillEmailsData(EmailsData emailsData) {
+    public void fillEmailsData(EmailsData emailsData) {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys(emailsData.getEmail1());
@@ -91,7 +92,7 @@ public class ApplicationManager {
         wd.findElement(By.name("email3")).sendKeys(emailsData.getEmail3());
     }
 
-    protected void fillPhonesData(PhonesData phonesData) {
+    public void fillPhonesData(PhonesData phonesData) {
         wd.findElement(By.name("home")).click();
         wd.findElement(By.name("home")).clear();
         wd.findElement(By.name("home")).sendKeys(phonesData.getHomePhone1());
@@ -106,7 +107,7 @@ public class ApplicationManager {
         wd.findElement(By.name("fax")).sendKeys(phonesData.getFax());
     }
 
-    protected void fillBusinessData(BusinessData businessData) {
+    public void fillBusinessData(BusinessData businessData) {
         wd.findElement(By.name("title")).click();
         wd.findElement(By.name("title")).clear();
         wd.findElement(By.name("title")).sendKeys(businessData.getTitle());
@@ -118,7 +119,7 @@ public class ApplicationManager {
         wd.findElement(By.name("address")).sendKeys(businessData.getAddress1());
     }
 
-    protected void fillNamesData(NamesData namesData) {
+    public void fillNamesData(NamesData namesData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(namesData.getFirstName());
@@ -134,11 +135,11 @@ public class ApplicationManager {
 
     }
 
-    protected void addButton() {
+    public void addButton() {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    protected void fillGroupData(GroupData groupData) {
+    public void fillGroupData(GroupData groupData) {
         wd.findElement(By.name("group_footer")).click();
         wd.findElement(By.name("group_footer")).clear();
         wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
@@ -150,7 +151,7 @@ public class ApplicationManager {
         wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
     }
 
-    protected void stop() {
+    public void stop() {
         wd.quit();
     }
 }

@@ -1,5 +1,6 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.tests;
 
+import jc.sas.adressbook.model.GroupData;
 import org.testng.annotations.Test;
 
 public class GroupCreationTests extends TestBase {

@@ -1,5 +1,6 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.tests;
 
+import jc.sas.adressbook.appmanager.ApplicationManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

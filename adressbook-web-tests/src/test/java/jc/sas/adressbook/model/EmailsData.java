@@ -1,4 +1,4 @@
-package jc.sas.adressbook;
+package jc.sas.adressbook.model;
 
 public class EmailsData {
     private final String email1;
