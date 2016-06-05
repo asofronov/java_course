@@ -7,13 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by aleks on 05.06.2016.
- */
-public class ApplicationManager {
-
+public class ApplicationManager extends NavigationHelper {
 
     FirefoxDriver wd;
+
+    private GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -28,6 +26,7 @@ public class ApplicationManager {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
+        groupHelper = new GroupHelper(wd);
         login();
     }
 
@@ -39,18 +38,6 @@ public class ApplicationManager {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
-
-    public void backToGroups() {
-        wd.findElement(By.linkText("group page")).click();
-    }
-
-    public void submit() {
-        wd.findElement(By.name("submit")).click();
-    }
-
-    public void createGroup() {
-        wd.findElement(By.name("new")).click();
     }
 
     public void openGroup() {
@@ -139,19 +126,11 @@ public class ApplicationManager {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    public void fillGroupData(GroupData groupData) {
-        wd.findElement(By.name("group_footer")).click();
-        wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-        wd.findElement(By.name("group_header")).click();
-        wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-        wd.findElement(By.name("group_name")).click();
-        wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-    }
-
     public void stop() {
         wd.quit();
+    }
+
+    public GroupHelper getGroupHelper() {
+        return groupHelper;
     }
 }
