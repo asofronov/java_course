@@ -15,7 +15,7 @@ public class GroupHelper {
         this.wd = wd;
     }
 
-    public void submit() {
+    public void submitGroupCreation() {
         wd.findElement(By.name("submit")).click();
     }
 

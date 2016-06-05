@@ -8,10 +8,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+
     FirefoxDriver wd;
 
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
+    private SessionHelper sessionHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -28,20 +30,11 @@ public class ApplicationManager {
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
-        login();
+        sessionHelper = new SessionHelper(wd);
+        sessionHelper.login();
     }
 
-    public void login() {
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys("admin");
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys("secret");
-        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
-
-    public void confirmation() {
+    public void submitContactCreation() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
