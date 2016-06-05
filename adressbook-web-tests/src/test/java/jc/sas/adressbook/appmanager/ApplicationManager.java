@@ -42,16 +42,8 @@ public class ApplicationManager {
         return groupHelper;
     }
 
-    public void openGroup() {
-        navigationHelper.openGroup();
-    }
-
-    public void backHomePage() {
-        navigationHelper.backHomePage();
-    }
-
-    public void backToGroups() {
-        navigationHelper.backToGroups();
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 
     public ContactsHelper getContactsHelper() {

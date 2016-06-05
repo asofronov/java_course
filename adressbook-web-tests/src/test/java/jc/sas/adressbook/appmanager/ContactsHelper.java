@@ -4,9 +4,6 @@ import jc.sas.adressbook.model.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * Created by aleks on 05.06.2016.
- */
 public class ContactsHelper {
     private FirefoxDriver wd;
 
@@ -24,7 +21,7 @@ public class ContactsHelper {
         wd.findElement(By.name("homepage")).sendKeys(otherData.getWebsite());
         wd.findElement(By.name("address2")).click();
         wd.findElement(By.name("address2")).clear();
-        wd.findElement(By.name("address2")).sendKeys(otherData.getAddress2());;
+        wd.findElement(By.name("address2")).sendKeys(otherData.getAddress2());
         wd.findElement(By.name("phone2")).click();
         wd.findElement(By.name("phone2")).clear();
         wd.findElement(By.name("phone2")).sendKeys(otherData.getHomePhone2());
