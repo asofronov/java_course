@@ -7,11 +7,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class ApplicationManager extends NavigationHelper {
-
+public class ApplicationManager {
     FirefoxDriver wd;
 
     private GroupHelper groupHelper;
+    private NavigationHelper navigationHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -27,6 +27,7 @@ public class ApplicationManager extends NavigationHelper {
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
+        navigationHelper = new NavigationHelper(wd);
         login();
     }
 
@@ -38,14 +39,6 @@ public class ApplicationManager extends NavigationHelper {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
-
-    public void openGroup() {
-        wd.findElement(By.linkText("groups")).click();
-    }
-
-    public void backHomePage() {
-        wd.findElement(By.linkText("home page")).click();
     }
 
     public void confirmation() {
@@ -132,5 +125,17 @@ public class ApplicationManager extends NavigationHelper {
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public void openGroup() {
+        navigationHelper.openGroup();
+    }
+
+    public void backHomePage() {
+        navigationHelper.backHomePage();
+    }
+
+    public void backToGroups() {
+        navigationHelper.backToGroups();
     }
 }
