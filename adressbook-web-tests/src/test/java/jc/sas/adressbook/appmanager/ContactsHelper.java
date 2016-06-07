@@ -63,8 +63,8 @@ public class ContactsHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void chooseContactCheckmark(String way) {
-        click(By.xpath(way));
+    public void chooseContactId(String id) {
+        click(By.xpath("//input[@id='" + id +"']"));
     }
 
     public void scrollToDeletion() {
