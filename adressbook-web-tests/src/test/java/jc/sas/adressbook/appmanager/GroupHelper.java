@@ -27,8 +27,8 @@ public class GroupHelper extends HelperBase {
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    public void chooseGroup(String way) {
-        click(By.xpath(way));
+    public void chooseGroupPosition(String position) {
+        click(By.xpath("//div[@id='content']/form/span["+ position + "]/input"));
     }
 
     public void clickEdit() {

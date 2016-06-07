@@ -11,7 +11,7 @@ public class GroupModificationTests extends TestBase {
     @Test
     public void testGroupModification() {
         app.getNavigationHelper().openGroup();
-        app.getGroupHelper().chooseGroup("//div[@id='content']/form/span[1]/input");
+        app.getGroupHelper().chooseGroupPosition("1");
         app.getGroupHelper().clickEdit();
         app.getGroupHelper().fillGroupData(new GroupData("UpdatedFooter", "UpdatedHeader", "UpdatedTitleGroup"));
         app.getGroupHelper().submitUpdateGroup();

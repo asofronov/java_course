@@ -10,7 +10,7 @@ public class ContactDeletionTests extends TestBase {
     @Test
     public void testContactDeletion() {
         app.getContactsHelper().getContactList();
-        app.getContactsHelper().chooseContactCheckmark("//input[@id='6']");
+        app.getContactsHelper().chooseContactId("8");
         app.getContactsHelper().scrollToDeletion();
         app.getContactsHelper().submitContactDeletion();
         app.getContactsHelper().dialogConfirmDeletion();
