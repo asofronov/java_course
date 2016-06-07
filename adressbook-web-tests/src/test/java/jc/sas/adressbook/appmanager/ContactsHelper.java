@@ -62,4 +62,20 @@ public class ContactsHelper extends HelperBase {
     public void submitContactUpdate() {
         click(By.name("update"));
     }
+
+    public void chooseContactCheckmark(String way) {
+        click(By.xpath(way));
+    }
+
+    public void scrollToDeletion() {
+        scrollDown("//div[@id='content']/form[2]/div[2]/input");
+    }
+
+    public void submitContactDeletion() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public void dialogConfirmDeletion() {
+        wd.switchTo().alert().accept();
+    }
 }

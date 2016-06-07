@@ -1,6 +1,8 @@
 package jc.sas.adressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
@@ -22,6 +24,13 @@ public class HelperBase {
 
     protected void click(By locator) {
         wd.findElement(locator).click();
+    }
+
+    public void scrollDown(String xpath) {
+        WebElement element = wd.findElement(By.xpath(xpath));
+        ((JavascriptExecutor)wd).executeScript("arguments[0].scrollIntoView();"
+                ,element);
+
     }
 
 }

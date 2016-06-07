@@ -19,6 +19,6 @@ public class ContactModificationTests extends TestBase {
         app.getContactsHelper().fillOtherData(new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         app.getContactsHelper().submitContactUpdate();
         app.getNavigationHelper().backHomePage();
-        
+
     }
 }
