@@ -28,23 +28,23 @@ public class ContactsHelper extends HelperBase {
     }
 
     public void fillPhonesData(PhonesData phonesData) {
-        type(By.name("home"),phonesData.getHomePhone1());
-        type(By.name("mobile"),phonesData.getMobilePhone());
-        type(By.name("work"),phonesData.getWorkPhone());
-        type(By.name("fax"),phonesData.getFax());
+        type(By.name("home"), phonesData.getHomePhone1());
+        type(By.name("mobile"), phonesData.getMobilePhone());
+        type(By.name("work"), phonesData.getWorkPhone());
+        type(By.name("fax"), phonesData.getFax());
     }
 
     public void fillBusinessData(BusinessData businessData) {
-        type(By.name("title"),businessData.getTitle());
-        type(By.name("company"),businessData.getCompany());
-        type(By.name("address"),businessData.getAddress1());
+        type(By.name("title"), businessData.getTitle());
+        type(By.name("company"), businessData.getCompany());
+        type(By.name("address"), businessData.getAddress1());
     }
 
     public void fillNamesData(NamesData namesData) {
-        type(By.name("firstname"),namesData.getFirstName());
-        type(By.name("middlename"),namesData.getMidName());
-        type(By.name("lastname"),namesData.getLastName());
-        type(By.name("nickname"),namesData.getNickname());
+        type(By.name("firstname"), namesData.getFirstName());
+        type(By.name("middlename"), namesData.getMidName());
+        type(By.name("lastname"), namesData.getLastName());
+        type(By.name("nickname"), namesData.getNickname());
     }
 
     public void addButton() {

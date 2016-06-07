@@ -28,8 +28,8 @@ public class HelperBase {
 
     public void scrollDown(String xpath) {
         WebElement element = wd.findElement(By.xpath(xpath));
-        ((JavascriptExecutor)wd).executeScript("arguments[0].scrollIntoView();"
-                ,element);
+        ((JavascriptExecutor) wd).executeScript("arguments[0].scrollIntoView();"
+                , element);
 
     }
 

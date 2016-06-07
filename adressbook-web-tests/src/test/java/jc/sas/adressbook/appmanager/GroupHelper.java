@@ -41,6 +41,6 @@ public class GroupHelper extends HelperBase {
     }
 
     public void submitGroupDeletion() {
-    click(By.name("delete"));
+        click(By.name("delete"));
     }
 }
