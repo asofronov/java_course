@@ -50,4 +50,16 @@ public class ContactsHelper extends HelperBase {
     public void addButton() {
         click(By.linkText("add new"));
     }
+
+    public void getContactList() {
+        wd.get("http://localhost/addressbook/");
+    }
+
+    public void openEditForm(String way) {
+        click(By.xpath(way));
+    }
+
+    public void submitContactUpdate() {
+        click(By.name("update"));
+    }
 }
