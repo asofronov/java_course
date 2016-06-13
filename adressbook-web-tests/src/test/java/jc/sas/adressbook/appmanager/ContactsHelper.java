@@ -3,11 +3,10 @@ package jc.sas.adressbook.appmanager;
 import jc.sas.adressbook.model.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactsHelper extends HelperBase {
 
-    public ContactsHelper(WebDriver wd) {
+    ContactsHelper(WebDriver wd) {
         super(wd);
     }
 

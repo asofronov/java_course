@@ -3,14 +3,10 @@ package jc.sas.adressbook.appmanager;
 import jc.sas.adressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * Created by aleks on 05.06.2016.
- */
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(WebDriver wd) {
+    GroupHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -18,7 +14,7 @@ public class GroupHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void createGroup() {
+    public void createGroupButton() {
         click(By.name("new"));
     }
 
@@ -28,14 +24,13 @@ public class GroupHelper extends HelperBase {
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    public void chooseGroupPosition(String position) {
-        click(By.xpath("//div[@id='content']/form/span["+ position + "]/input"));
+    public void chooseGroup() {
+        click(By.name("selected[]"));
     }
 
     public void clickEdit() {
         click(By.name("edit"));
     }
-
 
     public void submitUpdateGroup() {
         click(By.name("update"));
@@ -43,5 +38,17 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupDeletion() {
         click(By.name("delete"));
+    }
+
+    public void createGroupProccess(GroupData group) {
+        createGroupButton();
+        fillGroupData(group);
+        submitGroupCreation();
+        NavigationHelper navigation = new NavigationHelper(wd);
+        navigation.backToGroups();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

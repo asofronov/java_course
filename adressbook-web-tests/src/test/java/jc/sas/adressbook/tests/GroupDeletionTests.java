@@ -1,16 +1,17 @@
 package jc.sas.adressbook.tests;
 
+import jc.sas.adressbook.model.GroupData;
 import org.testng.annotations.Test;
 
-/**
- * Created by aleks on 07.06.2016.
- */
 public class GroupDeletionTests extends TestBase {
 
     @Test
     public void testGroupDeletion() {
         app.getNavigationHelper().openGroup();
-        app.getGroupHelper().chooseGroupPosition("1");
+        if (!app.getGroupHelper().isThereAGroup()) {
+            app.getGroupHelper().createGroupProccess(new GroupData("TestFooter", "TestHeader", "testGroup"));
+        }
+        app.getGroupHelper().chooseGroup();
         app.getGroupHelper().submitGroupDeletion();
         app.getNavigationHelper().backToGroups();
     }

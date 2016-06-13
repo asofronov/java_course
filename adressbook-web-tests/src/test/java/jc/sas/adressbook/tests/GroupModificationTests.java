@@ -11,11 +11,13 @@ public class GroupModificationTests extends TestBase {
     @Test
     public void testGroupModification() {
         app.getNavigationHelper().openGroup();
-        app.getGroupHelper().chooseGroupPosition("1");
+        if (!app.getGroupHelper().isThereAGroup()) {
+            app.getGroupHelper().createGroupProccess(new GroupData("TestFooter", "TestHeader", "testGroup"));
+        }
+        app.getGroupHelper().chooseGroup();
         app.getGroupHelper().clickEdit();
         app.getGroupHelper().fillGroupData(new GroupData("UpdatedFooter", "UpdatedHeader", "UpdatedTitleGroup"));
         app.getGroupHelper().submitUpdateGroup();
         app.getNavigationHelper().backToGroups();
-
     }
 }

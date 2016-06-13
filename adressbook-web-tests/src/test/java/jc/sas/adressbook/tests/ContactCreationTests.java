@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class ContactCreationTests extends TestBase {
 
     @Test
-    public void ContactCreationTests() {
+    public void testCreationContact() {
         app.getContactsHelper().addButton();
         app.getContactsHelper().fillNamesData(new NamesData("First", "Mid", "Last", "Nickname"));
         app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));

@@ -3,12 +3,9 @@ package jc.sas.adressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by aleks on 05.06.2016.
- */
 public class NavigationHelper extends HelperBase {
 
-    public NavigationHelper(WebDriver wd) {
+    NavigationHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -22,9 +19,8 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void backHomePage() {
-        if (isElementPresent(By.id("maintable")))
-        {
-          return;
+        if (isElementPresent(By.id("maintable"))) {
+            return;
         }
         click(By.linkText("home page"));
     }
