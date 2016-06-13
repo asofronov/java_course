@@ -63,8 +63,8 @@ public class ContactsHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void chooseContactId(String id) {
-        click(By.xpath("//input[@id='" + id +"']"));
+    public void chooseContact() {
+        click(By.name("selected[]"));
     }
 
     public void scrollToDeletion() {
@@ -77,5 +77,19 @@ public class ContactsHelper extends HelperBase {
 
     public void dialogConfirmDeletion() {
         wd.switchTo().alert().accept();
+    }
+
+    public void createContact(NamesData names, BusinessData bdata, PhonesData phones, EmailsData emails, OtherData otherdata) {
+        addButton();
+        fillNamesData(names);
+        fillBusinessData(bdata);
+        fillPhonesData(phones);
+        fillEmailsData(emails);
+        fillOtherData(otherdata);
+        submitContactCreation();
+    }
+
+    public boolean isThereContact() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
