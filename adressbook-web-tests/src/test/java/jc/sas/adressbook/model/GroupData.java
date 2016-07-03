@@ -1,14 +1,15 @@
 package jc.sas.adressbook.model;
 
 public class GroupData {
-    private final String footer;
-    private final String header;
     private final String name;
+    private final String header;
+    private final String footer;
 
-    public GroupData(String footer, String header, String name) {
-        this.footer = footer;
-        this.header = header;
+
+    public GroupData(String name, String header, String footer) {
         this.name = name;
+        this.header = header;
+        this.footer = footer;
     }
 
     public String getFooter() {
