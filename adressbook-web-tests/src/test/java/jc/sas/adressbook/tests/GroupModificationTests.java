@@ -15,12 +15,12 @@ public class GroupModificationTests extends TestBase {
             app.getGroupHelper().createGroupProccess(new GroupData("TestFooter", "TestHeader", "testGroup"));
         }
         List<GroupData> before = app.getGroupHelper().getGroupList();
-        app.getGroupHelper().chooseGroup();
+        app.getGroupHelper().chooseGroup(before.size() - 1);
         app.getGroupHelper().clickEdit();
         app.getGroupHelper().fillGroupData(new GroupData("UpdatedFooter", "UpdatedHeader", "UpdatedTitleGroup"));
         app.getGroupHelper().submitUpdateGroup();
         app.getNavigationHelper().backToGroups();
         List<GroupData> after = app.getGroupHelper().getGroupList();
-        Assert.assertEquals(after.size(), before.size() + 1);
+        Assert.assertEquals(after.size(), before.size());
     }
 }
