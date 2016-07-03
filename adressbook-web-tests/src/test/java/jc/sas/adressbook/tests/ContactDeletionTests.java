@@ -17,7 +17,7 @@ public class ContactDeletionTests extends TestBase {
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
         int before = app.getContactsHelper().getContactCount();
-        app.getContactsHelper().chooseContact();
+        app.getContactsHelper().chooseContact(before-1);
         app.getContactsHelper().submitContactDeletion();
         app.getContactsHelper().dialogConfirmDeletion();
         app.getContactsHelper().getContactList();
