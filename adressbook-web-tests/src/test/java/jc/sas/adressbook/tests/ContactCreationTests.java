@@ -1,12 +1,15 @@
 package jc.sas.adressbook.tests;
 
 import jc.sas.adressbook.model.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ContactCreationTests extends TestBase {
 
     @Test
     public void testCreationContact() {
+        app.getContactsHelper().getContactList();
+        int before = app.getContactsHelper().getContactCount();
         app.getContactsHelper().addButton();
         app.getContactsHelper().fillNamesData(new NamesData("First", "Mid", "Last", "Nickname"));
         app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));
@@ -15,6 +18,8 @@ public class ContactCreationTests extends TestBase {
         app.getContactsHelper().fillOtherData(new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         app.getContactsHelper().submitContactCreation();
         app.getNavigationHelper().backHomePage();
+        int after = app.getContactsHelper().getContactCount();
+        Assert.assertEquals(after, before + 1);
     }
 
 }

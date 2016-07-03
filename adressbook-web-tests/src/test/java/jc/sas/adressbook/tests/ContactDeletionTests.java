@@ -1,6 +1,7 @@
 package jc.sas.adressbook.tests;
 
 import jc.sas.adressbook.model.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ContactDeletionTests extends TestBase {
@@ -15,8 +16,12 @@ public class ContactDeletionTests extends TestBase {
                     new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
+        int before = app.getContactsHelper().getContactCount();
         app.getContactsHelper().chooseContact();
         app.getContactsHelper().submitContactDeletion();
         app.getContactsHelper().dialogConfirmDeletion();
+        app.getContactsHelper().getContactList();
+        int after = app.getContactsHelper().getContactCount();
+        Assert.assertEquals(after, before - 1);
     }
 }
