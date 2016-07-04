@@ -28,4 +28,31 @@ public class NamesData {
     public String getNickname() {
         return nickname;
     }
+
+    @Override
+    public String toString() {
+        return "NamesData{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        NamesData namesData = (NamesData) o;
+
+        if (firstName != null ? !firstName.equals(namesData.firstName) : namesData.firstName != null) return false;
+        return lastName != null ? lastName.equals(namesData.lastName) : namesData.lastName == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
+    }
 }
