@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public class GroupHelper extends HelperBase {
 
     GroupHelper(WebDriver wd) {
@@ -56,10 +58,6 @@ public class GroupHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getGroupCount() {
-        return wd.findElements(By.name("selected[]")).size();
-
-    }
 
     public List<GroupData> getGroupList() {
         List<GroupData> groups = new ArrayList<GroupData>();
@@ -71,4 +69,5 @@ public class GroupHelper extends HelperBase {
         }
         return groups;
     }
+
 }

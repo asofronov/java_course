@@ -4,6 +4,8 @@ import jc.sas.adressbook.model.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class ContactDeletionTests extends TestBase {
 
     @Test
@@ -16,12 +18,12 @@ public class ContactDeletionTests extends TestBase {
                     new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
-        int before = app.getContactsHelper().getContactCount();
-        app.getContactsHelper().chooseContact(before-1);
+        List<NamesData> before = app.getContactsHelper().getContactsList();
+        app.getContactsHelper().chooseContact(before.size()-1);
         app.getContactsHelper().submitContactDeletion();
         app.getContactsHelper().dialogConfirmDeletion();
         app.getContactsHelper().getContactList();
-        int after = app.getContactsHelper().getContactCount();
-        Assert.assertEquals(after, before - 1);
+        List<NamesData> after = app.getContactsHelper().getContactsList();
+        Assert.assertEquals(after.size(), before.size() - 1);
     }
 }

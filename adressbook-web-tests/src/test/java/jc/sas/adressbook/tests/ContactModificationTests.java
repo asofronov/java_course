@@ -4,6 +4,8 @@ import jc.sas.adressbook.model.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class ContactModificationTests extends TestBase {
 
     @Test
@@ -16,8 +18,8 @@ public class ContactModificationTests extends TestBase {
                     new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
-        int before = app.getContactsHelper().getContactCount();
-        app.getContactsHelper().openEditForm("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img");
+        List<NamesData> before = app.getContactsHelper().getContactsList();
+        app.getContactsHelper().openEditForm(before.size()-1);
         app.getContactsHelper().fillNamesData(new NamesData("First", "Mid", "Last", "Nickname"));
         app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));
         app.getContactsHelper().fillPhonesData(new PhonesData("123456", "1234567", "12345678", "123456789"));
@@ -25,8 +27,8 @@ public class ContactModificationTests extends TestBase {
         app.getContactsHelper().fillOtherData(new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         app.getContactsHelper().submitContactUpdate();
         app.getNavigationHelper().backHomePage();
-        int after = app.getContactsHelper().getContactCount();
-        Assert.assertEquals(after, before);
+        List<NamesData> after = app.getContactsHelper().getContactsList();
+        Assert.assertEquals(after.size(), before.size());
 
     }
 }

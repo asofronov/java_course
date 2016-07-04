@@ -3,6 +3,12 @@ package jc.sas.adressbook.appmanager;
 import jc.sas.adressbook.model.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class ContactsHelper extends HelperBase {
 
@@ -55,8 +61,8 @@ public class ContactsHelper extends HelperBase {
         wd.get("http://localhost/addressbook/");
     }
 
-    public void openEditForm(String way) {
-        click(By.xpath(way));
+    public void openEditForm(int index) {
+        wd.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[8]")).get(index).click();
     }
 
     public void submitContactUpdate() {
@@ -95,5 +101,18 @@ public class ContactsHelper extends HelperBase {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+
+    public List<NamesData> getContactsList() {
+        List<NamesData> names = new ArrayList<NamesData>();
+        List<WebElement> rows = wd.findElements(By.name("entry"));
+        for (WebElement row : rows) {
+            String lastName = row.findElement(By.xpath("./td[2]")).getText();
+            String firstName = row.findElement(By.xpath("./td[3]")).getText();
+            NamesData name = new NamesData(firstName,null,lastName,null);
+            names.add(name);
+        }
+        return names;
     }
 }
