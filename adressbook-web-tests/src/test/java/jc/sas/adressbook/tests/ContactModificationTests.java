@@ -4,7 +4,7 @@ import jc.sas.adressbook.model.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
@@ -20,8 +20,8 @@ public class ContactModificationTests extends TestBase {
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
         List<NamesData> before = app.getContactsHelper().getContactsList();
-        app.getContactsHelper().openEditForm(before.size()-1);
-        NamesData names = new NamesData(before.get(before.size()-1).getId(),"First", "Mid", "Last", "Nickname");
+        app.getContactsHelper().openEditForm(before.size() - 1);
+        NamesData names = new NamesData(before.get(before.size() - 1).getId(), "First", "Mid", "Last", "Nickname");
         app.getContactsHelper().fillNamesData(names);
         app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));
         app.getContactsHelper().fillPhonesData(new PhonesData("123456", "1234567", "12345678", "123456789"));
@@ -32,9 +32,13 @@ public class ContactModificationTests extends TestBase {
         List<NamesData> after = app.getContactsHelper().getContactsList();
         Assert.assertEquals(after.size(), before.size());
 
-        before.remove(before.size()-1);
+        before.remove(before.size() - 1);
         before.add(names);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+
+        Comparator<? super NamesData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
 
     }
 }

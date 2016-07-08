@@ -4,7 +4,7 @@ import jc.sas.adressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
 
 public class GroupModificationTests extends TestBase {
@@ -13,20 +13,23 @@ public class GroupModificationTests extends TestBase {
     public void testGroupModification() {
         app.getNavigationHelper().openGroup();
         if (!app.getGroupHelper().isThereAGroup()) {
-            app.getGroupHelper().createGroupProccess(new GroupData("TestFooter", "TestHeader", "testGroup"));
+            app.getGroupHelper().createGroupProccess(new GroupData("test1", "test2", "test3"));
         }
         List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().chooseGroup(before.size() - 1);
         app.getGroupHelper().clickEdit();
-        GroupData group = new GroupData(before.get(before.size()-1).getId(),"UpdatedFooter", "UpdatedHeader", "UpdatedTitleGroup");
+        GroupData group = new GroupData(before.get(before.size() - 1).getId(), "test", "test", "test");
         app.getGroupHelper().fillGroupData(group);
         app.getGroupHelper().submitUpdateGroup();
         app.getNavigationHelper().backToGroups();
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size());
 
-        before.remove(before.size()-1);
+        before.remove(before.size() - 1);
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 }

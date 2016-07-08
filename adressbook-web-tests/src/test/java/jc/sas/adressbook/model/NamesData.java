@@ -16,7 +16,7 @@ public class NamesData {
     }
 
     public NamesData(String firstName, String midName, String lastName, String nickname) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.midName = midName;
         this.lastName = lastName;
@@ -63,7 +63,6 @@ public class NamesData {
 
         NamesData namesData = (NamesData) o;
 
-        if (id != namesData.id) return false;
         if (firstName != null ? !firstName.equals(namesData.firstName) : namesData.firstName != null) return false;
         return lastName != null ? lastName.equals(namesData.lastName) : namesData.lastName == null;
 
@@ -71,8 +70,7 @@ public class NamesData {
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
     }
