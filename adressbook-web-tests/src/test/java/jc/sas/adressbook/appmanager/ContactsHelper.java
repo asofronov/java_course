@@ -8,8 +8,6 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 public class ContactsHelper extends HelperBase {
 
     ContactsHelper(WebDriver wd) {
@@ -110,7 +108,8 @@ public class ContactsHelper extends HelperBase {
         for (WebElement row : rows) {
             String lastName = row.findElement(By.xpath("./td[2]")).getText();
             String firstName = row.findElement(By.xpath("./td[3]")).getText();
-            NamesData name = new NamesData(firstName,null,lastName,null);
+            String id = row.findElement(By.tagName("input")).getAttribute("value");
+            NamesData name = new NamesData(id, firstName, null, lastName, null);
             names.add(name);
         }
         return names;
