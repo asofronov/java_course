@@ -1,13 +1,13 @@
 package jc.sas.adressbook.model;
 
 public class NamesData {
-    private final String id;
+    private int id;
     private final String firstName;
     private final String midName;
     private final String lastName;
     private final String nickname;
 
-    public NamesData(String id, String firstName, String midName, String lastName, String nickname) {
+    public NamesData(int id, String firstName, String midName, String lastName, String nickname) {
         this.id = id;
         this.firstName = firstName;
         this.midName = midName;
@@ -16,14 +16,18 @@ public class NamesData {
     }
 
     public NamesData(String firstName, String midName, String lastName, String nickname) {
-        this.id = null;
+        this.id = 0;
         this.firstName = firstName;
         this.midName = midName;
         this.lastName = lastName;
         this.nickname = nickname;
     }
 
-    public String getId() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -59,7 +63,7 @@ public class NamesData {
 
         NamesData namesData = (NamesData) o;
 
-        if (id != null ? !id.equals(namesData.id) : namesData.id != null) return false;
+        if (id != namesData.id) return false;
         if (firstName != null ? !firstName.equals(namesData.firstName) : namesData.firstName != null) return false;
         return lastName != null ? lastName.equals(namesData.lastName) : namesData.lastName == null;
 
@@ -67,7 +71,7 @@ public class NamesData {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;

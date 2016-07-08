@@ -97,18 +97,13 @@ public class ContactsHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getContactCount() {
-        return wd.findElements(By.name("selected[]")).size();
-    }
-
-
     public List<NamesData> getContactsList() {
         List<NamesData> names = new ArrayList<NamesData>();
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows) {
             String lastName = row.findElement(By.xpath("./td[2]")).getText();
             String firstName = row.findElement(By.xpath("./td[3]")).getText();
-            String id = row.findElement(By.tagName("input")).getAttribute("value");
+            int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
             NamesData name = new NamesData(id, firstName, null, lastName, null);
             names.add(name);
         }
