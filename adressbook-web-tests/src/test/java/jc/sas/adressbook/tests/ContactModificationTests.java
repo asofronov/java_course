@@ -2,6 +2,7 @@ package jc.sas.adressbook.tests;
 
 import jc.sas.adressbook.model.*;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -9,8 +10,8 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-    @Test
-    public void testContactModification() {
+    @BeforeMethod
+    public void executePreconditions() {
         app.getContactsHelper().getContactList();
         if (!app.getContactsHelper().isThereContact()) {
             app.getContactsHelper().createContact(new NamesData("First", "Mid", "Last", "Nickname"),
@@ -19,22 +20,25 @@ public class ContactModificationTests extends TestBase {
                     new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
+    }
+
+    @Test
+    public void testContactModification() {
         List<NamesData> before = app.getContactsHelper().getContactsList();
-        app.getContactsHelper().openEditForm(before.size() - 1);
-        NamesData names = new NamesData(before.get(before.size() - 1).getId(), "First", "Mid", "Last", "Nickname");
-        app.getContactsHelper().fillNamesData(names);
-        app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));
-        app.getContactsHelper().fillPhonesData(new PhonesData("123456", "1234567", "12345678", "123456789"));
-        app.getContactsHelper().fillEmailsData(new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"));
-        app.getContactsHelper().fillOtherData(new OtherData("http://ya.ru", "Address2", "Home", "Note"));
-        app.getContactsHelper().submitContactUpdate();
+        int index = before.size() - 1;
+        NamesData names = new NamesData(before.get(index).getId(), "First", "Mid", "Last", "Nickname");
+        BusinessData bdata = new BusinessData("Address1", "Company", "Title");
+        PhonesData phones = new PhonesData("123456", "1234567", "12345678", "123456789");
+        EmailsData mails = new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru");
+        OtherData other = new OtherData("http://ya.ru", "Address2", "Home", "Note");
+        app.getContactsHelper().openEditForm(index);
+        app.getContactsHelper().modifyContact(names, bdata, phones, mails, other);
         app.getNavigationHelper().backHomePage();
         List<NamesData> after = app.getContactsHelper().getContactsList();
         Assert.assertEquals(after.size(), before.size());
 
-        before.remove(before.size() - 1);
+        before.remove(index);
         before.add(names);
-
         Comparator<? super NamesData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
         before.sort(byId);
         after.sort(byId);

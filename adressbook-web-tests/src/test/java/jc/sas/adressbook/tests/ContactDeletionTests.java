@@ -2,14 +2,15 @@ package jc.sas.adressbook.tests;
 
 import jc.sas.adressbook.model.*;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class ContactDeletionTests extends TestBase {
 
-    @Test
-    public void testContactDeletion() {
+    @BeforeMethod
+    public void executePreconditions() {
         app.getContactsHelper().getContactList();
         if (!app.getContactsHelper().isThereContact()) {
             app.getContactsHelper().createContact(new NamesData("First", "Mid", "Last", "Nickname"),
@@ -18,8 +19,13 @@ public class ContactDeletionTests extends TestBase {
                     new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
                     new OtherData("http://ya.ru", "Address2", "Home", "Note"));
         }
+    }
+
+    @Test
+    public void testContactDeletion() {
         List<NamesData> before = app.getContactsHelper().getContactsList();
-        app.getContactsHelper().chooseContact(before.size()-1);
+        int index = before.size() - 1;
+        app.getContactsHelper().chooseContact(index);
         app.getContactsHelper().scrollToDeletion();
         app.getContactsHelper().submitContactDeletion();
         app.getContactsHelper().dialogConfirmDeletion();
@@ -27,8 +33,8 @@ public class ContactDeletionTests extends TestBase {
         List<NamesData> after = app.getContactsHelper().getContactsList();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size() - 1);
-        Assert.assertEquals(before,after);
+        before.remove(index);
+        Assert.assertEquals(before, after);
 
     }
 }

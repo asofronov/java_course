@@ -13,14 +13,12 @@ public class ContactCreationTests extends TestBase {
     public void testCreationContact() {
         app.getContactsHelper().getContactList();
         List<NamesData> before = app.getContactsHelper().getContactsList();
-        app.getContactsHelper().addButton();
         NamesData names = new NamesData("First", "Mid", "Last", "Nickname");
-        app.getContactsHelper().fillNamesData(names);
-        app.getContactsHelper().fillBusinessData(new BusinessData("Address1", "Company", "Title"));
-        app.getContactsHelper().fillPhonesData(new PhonesData("123456", "1234567", "12345678", "123456789"));
-        app.getContactsHelper().fillEmailsData(new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"));
-        app.getContactsHelper().fillOtherData(new OtherData("http://ya.ru", "Address2", "Home", "Note"));
-        app.getContactsHelper().submitContactCreation();
+        BusinessData bdata = new BusinessData("Address1", "Company", "Title");
+        PhonesData phones = new PhonesData("123456", "1234567", "12345678", "123456789");
+        EmailsData mails = new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru");
+        OtherData other = new OtherData("http://ya.ru", "Address2", "Home", "Note");
+        app.getContactsHelper().createContact(names, bdata, phones, mails, other);
         app.getNavigationHelper().backHomePage();
         List<NamesData> after = app.getContactsHelper().getContactsList();
         Assert.assertEquals(after.size(), before.size() + 1);
