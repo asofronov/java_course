@@ -1,16 +1,29 @@
 package jc.sas.adressbook.model;
 
 public class OtherData {
-    private final String website;
-    private final String address2;
-    private final String homePhone2;
-    private final String noteText;
+    private String website;
+    private String address2;
+    private String homePhone2;
+    private String noteText;
 
-    public OtherData(String website, String address2, String homePhone2, String noteText) {
+    public OtherData withWebsite(String website) {
         this.website = website;
+        return this;
+    }
+
+    public OtherData withAddress2(String address2) {
         this.address2 = address2;
+        return this;
+    }
+
+    public OtherData withHomePhone2(String homePhone2) {
         this.homePhone2 = homePhone2;
+        return this;
+    }
+
+    public OtherData withNoteText(String noteText) {
         this.noteText = noteText;
+        return this;
     }
 
     public String getWebsite() {

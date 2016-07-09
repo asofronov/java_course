@@ -1,30 +1,35 @@
 package jc.sas.adressbook.model;
 
 public class NamesData {
-    private int id;
-    private final String firstName;
-    private final String midName;
-    private final String lastName;
-    private final String nickname;
+    private int id = Integer.MAX_VALUE;;
+    private String firstName;
+    private String midName;
+    private String lastName;
+    private String nickname;
 
-    public NamesData(int id, String firstName, String midName, String lastName, String nickname) {
+    public NamesData withId(int id) {
         this.id = id;
-        this.firstName = firstName;
-        this.midName = midName;
-        this.lastName = lastName;
-        this.nickname = nickname;
+        return this;
     }
 
-    public NamesData(String firstName, String midName, String lastName, String nickname) {
-        this.id = Integer.MAX_VALUE;
+    public NamesData withFName(String firstName) {
         this.firstName = firstName;
-        this.midName = midName;
-        this.lastName = lastName;
-        this.nickname = nickname;
+        return this;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public NamesData withMName(String midName) {
+        this.midName = midName;
+        return this;
+    }
+
+    public NamesData withLName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public NamesData withNName(String nickName) {
+        this.nickname = nickName;
+        return this;
     }
 
     public int getId() {

@@ -1,14 +1,23 @@
 package jc.sas.adressbook.model;
 
 public class BusinessData {
-    private final String address1;
-    private final String company;
-    private final String title;
+    private String address1;
+    private String company;
+    private String title;
 
-    public BusinessData(String address1, String company, String title) {
+    public BusinessData withAddress1(String address1) {
         this.address1 = address1;
+        return this;
+    }
+
+    public BusinessData withCompany(String company) {
         this.company = company;
+        return this;
+    }
+
+    public BusinessData withTitle(String title) {
         this.title = title;
+        return this;
     }
 
     public String getAddress1() {

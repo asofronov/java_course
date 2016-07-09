@@ -1,14 +1,23 @@
 package jc.sas.adressbook.model;
 
 public class EmailsData {
-    private final String email1;
-    private final String email2;
-    private final String email3;
+    private String email1;
+    private String email2;
+    private String email3;
 
-    public EmailsData(String email1, String email2, String email3) {
+    public EmailsData withEmail1(String email1) {
         this.email1 = email1;
+        return this;
+    }
+
+    public EmailsData withEmail2(String email2) {
         this.email2 = email2;
+        return this;
+    }
+
+    public EmailsData withEmail3(String email3) {
         this.email3 = email3;
+        return this;
     }
 
     public String getEmail1() {

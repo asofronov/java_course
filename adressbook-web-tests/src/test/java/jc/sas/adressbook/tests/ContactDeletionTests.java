@@ -13,11 +13,11 @@ public class ContactDeletionTests extends TestBase {
     public void executePreconditions() {
         app.contact().listPage();
         if (app.contact().List().size() == 0) {
-            app.contact().create(new NamesData("First", "Mid", "Last", "Nickname"),
-                    new BusinessData("Address1", "Company", "Title"),
-                    new PhonesData("123456", "1234567", "12345678", "123456789"),
-                    new EmailsData("test@test.ru", "test2@test.ru", "test3@test.ru"),
-                    new OtherData("http://ya.ru", "Address2", "Home", "Note"));
+            app.contact().create(new NamesData().withFName("First").withMName("Mid").withLName("Last").withNName("Nickname"),
+                    new BusinessData().withAddress1("UAddress1").withCompany("UCompany").withTitle("UTitle"),
+                    new PhonesData().withPhone1("1234567").withMobPhone("12345678").withWorkPhone("123456789").withFax("1234567890"),
+                    new EmailsData().withEmail1("test@test.ru").withEmail2("test2@test.ru").withEmail3("test3@test.ru"),
+                    new OtherData().withWebsite("http://ya.ru").withAddress2("Address2").withHomePhone2("Home").withNoteText("Note"));
         }
     }
 
