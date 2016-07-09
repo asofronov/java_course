@@ -55,11 +55,11 @@ public class ContactsHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void getContactList() {
+    public void listPage() {
         wd.get("http://localhost/addressbook/");
     }
 
-    public void openEditForm(int index) {
+    public void chooseForEdit(int index) {
         wd.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[8]")).get(index).click();
     }
 
@@ -67,23 +67,23 @@ public class ContactsHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void chooseContact(int index) {
+    public void select(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public void scrollToDeletion() {
+    public void scrollToDelete() {
         scrollDown("//div[@id='content']/form[2]/div[2]/input");
     }
 
-    public void submitContactDeletion() {
+    public void deleteButton() {
         click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     }
 
-    public void dialogConfirmDeletion() {
+    public void confirmDeletion() {
         wd.switchTo().alert().accept();
     }
 
-    public void createContact(NamesData names, BusinessData bdata, PhonesData phones, EmailsData emails, OtherData otherdata) {
+    public void create(NamesData names, BusinessData bdata, PhonesData phones, EmailsData emails, OtherData otherdata) {
         addButton();
         fillNamesData(names);
         fillBusinessData(bdata);
@@ -93,7 +93,7 @@ public class ContactsHelper extends HelperBase {
         submitContactCreation();
     }
 
-    public void modifyContact(NamesData names, BusinessData bdata, PhonesData phones, EmailsData emails, OtherData otherdata) {
+    public void modify(NamesData names, BusinessData bdata, PhonesData phones, EmailsData emails, OtherData otherdata) {
         fillNamesData(names);
         fillBusinessData(bdata);
         fillPhonesData(phones);
@@ -106,7 +106,7 @@ public class ContactsHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public List<NamesData> getContactsList() {
+    public List<NamesData> List() {
         List<NamesData> names = new ArrayList<NamesData>();
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows) {

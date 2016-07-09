@@ -28,7 +28,7 @@ public class GroupHelper extends HelperBase {
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    public void chooseGroup(int index) {
+    public void select(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
@@ -40,20 +40,20 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void submitGroupDeletion() {
+    public void confirmDeletion() {
         click(By.name("delete"));
     }
 
-    public void createGroupProccess(GroupData group) {
+    public void create(GroupData group) {
         createGroupButton();
         fillGroupData(group);
         submitGroupCreation();
         NavigationHelper navigation = new NavigationHelper(wd);
-        navigation.backToGroups();
+        navigation.groupPageBack();
     }
 
-    public void modifyGroup(GroupData group, int index) {
-        chooseGroup(index);
+    public void modify(GroupData group, int index) {
+        select(index);
         clickEdit();
         fillGroupData(group);
         submitUpdateGroup();
@@ -64,7 +64,7 @@ public class GroupHelper extends HelperBase {
     }
 
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> List() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
