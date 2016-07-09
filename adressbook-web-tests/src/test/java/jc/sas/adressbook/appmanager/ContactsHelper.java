@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactsHelper extends HelperBase {
 
@@ -71,6 +73,10 @@ public class ContactsHelper extends HelperBase {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
+    public void selectById(int id) {
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
     public void scrollToDelete() {
         scrollDown("//div[@id='content']/form[2]/div[2]/input");
     }
@@ -116,5 +122,25 @@ public class ContactsHelper extends HelperBase {
             names.add(new NamesData().withId(id).withFName(firstName).withLName(lastName));
         }
         return names;
+    }
+
+    public Set<NamesData> all() {
+        Set<NamesData> names = new HashSet<>();
+        List<WebElement> rows = wd.findElements(By.name("entry"));
+        for (WebElement row : rows) {
+            String lastName = row.findElement(By.xpath("./td[2]")).getText();
+            String firstName = row.findElement(By.xpath("./td[3]")).getText();
+            int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+            names.add(new NamesData().withId(id).withFName(firstName).withLName(lastName));
+        }
+        return names;
+    }
+
+    public void delete(NamesData contact) {
+        selectById(contact.getId());
+        scrollToDelete();
+        deleteButton();
+        confirmDeletion();
+        listPage();
     }
 }

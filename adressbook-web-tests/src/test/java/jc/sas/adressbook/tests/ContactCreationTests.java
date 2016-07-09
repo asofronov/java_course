@@ -6,13 +6,14 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactCreationTests extends TestBase {
 
     @Test
     public void testCreationContact() {
         app.contact().listPage();
-        List<NamesData> before = app.contact().List();
+        Set<NamesData> before = app.contact().all();
         NamesData names = new NamesData().withFName("First").withMName("Mid").withLName("Last").withNName("Nick");
         BusinessData bdata = new BusinessData().withAddress1("UAddress1").withCompany("UCompany").withTitle("UTitle");
         PhonesData phones = new PhonesData().withPhone1("1234567").withMobPhone("12345678").withWorkPhone("123456789").withFax("1234567890");
@@ -20,13 +21,11 @@ public class ContactCreationTests extends TestBase {
         OtherData other = new OtherData().withWebsite("http://ya.ru").withAddress2("Address2").withHomePhone2("Home").withNoteText("Note");
         app.contact().create(names, bdata, phones, mails, other);
         app.goTo().contactPageBack();
-        List<NamesData> after = app.contact().List();
+        Set<NamesData> after = app.contact().all();
         Assert.assertEquals(after.size(), before.size() + 1);
 
+        names.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
         before.add(names);
-        Comparator<? super NamesData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
     }
 

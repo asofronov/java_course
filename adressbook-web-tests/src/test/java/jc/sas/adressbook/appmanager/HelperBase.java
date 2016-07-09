@@ -1,5 +1,6 @@
 package jc.sas.adressbook.appmanager;
 
+import jc.sas.adressbook.model.NamesData;
 import org.openqa.selenium.*;
 
 /**
@@ -43,4 +44,5 @@ public class HelperBase {
             return false;
         }
     }
+
 }
