@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactsHelper extends HelperBase {
 
@@ -61,8 +59,8 @@ public class ContactsHelper extends HelperBase {
         wd.get("http://localhost/addressbook/");
     }
 
-    public void chooseForEdit(int index) {
-        wd.findElements(By.xpath(".//*[@id='maintable']/tbody/tr/td[8]")).get(index).click();
+    public void chooseForEdit(int id) {
+        wd.findElement(By.xpath(".//*[@id='" + id + "']/ ../../td[8]/a")).click();
     }
 
     public void submitContactUpdate() {

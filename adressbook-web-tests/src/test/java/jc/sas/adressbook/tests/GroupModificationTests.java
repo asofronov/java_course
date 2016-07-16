@@ -8,8 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Set;
-
 public class GroupModificationTests extends TestBase {
 
     @BeforeMethod
