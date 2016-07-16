@@ -124,8 +124,8 @@ public class ContactsHelper extends HelperBase {
         return names;
     }
 
-    public Set<NamesData> all() {
-        Set<NamesData> names = new HashSet<>();
+    public Contacts all() {
+        Contacts names = new Contacts();
         List<WebElement> rows = wd.findElements(By.name("entry"));
         for (WebElement row : rows) {
             String lastName = row.findElement(By.xpath("./td[2]")).getText();
