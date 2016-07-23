@@ -31,8 +31,7 @@ public class ContactCreationTests {
     }
 
     @Test
-    public void ContactCreationTests() {
-        login("admin", "secret");
+    public void testContactCreation() {
         gotoContactPage();
         createContactLink();
         fillContactForm(new ContactData("TestName", "LastName", "222-222-222", "333-333-333", "444-444-444", "test@test.ru"));
