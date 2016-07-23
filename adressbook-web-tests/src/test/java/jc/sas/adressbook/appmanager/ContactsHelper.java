@@ -67,10 +67,6 @@ public class ContactsHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void select(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
-    }
-
     public void selectById(int id) {
         wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }

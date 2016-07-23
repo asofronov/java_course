@@ -19,9 +19,6 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void contactPageBack() {
-        if (isElementPresent(By.id("maintable"))) {
-            return;
-        }
         click(By.linkText("home page"));
     }
 
@@ -32,6 +29,10 @@ public class NavigationHelper extends HelperBase {
             return;
         }
         click(By.linkText("group page"));
+    }
+
+    public void homePage() {
+        wd.findElement(By.linkText("home")).click();
     }
 
 }
