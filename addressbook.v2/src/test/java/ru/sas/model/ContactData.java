@@ -1,4 +1,4 @@
-package ru.sas;
+package ru.sas.model;
 
 public class ContactData {
     private final String firstName;

@@ -1,4 +1,4 @@
-package ru.sas;
+package ru.sas.model;
 
 public class GroupData {
     private final String name;
