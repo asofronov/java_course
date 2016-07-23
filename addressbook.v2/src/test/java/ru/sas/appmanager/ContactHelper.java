@@ -42,4 +42,12 @@ public class ContactHelper extends HelperBase {
     public void selectContact() {
         click(By.name("selected[]"));
     }
+
+    public void initContactModification() {
+        click(By.xpath(".//tr[2]/td[8]"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
 }
