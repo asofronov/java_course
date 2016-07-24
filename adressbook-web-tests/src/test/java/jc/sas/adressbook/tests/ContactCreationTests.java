@@ -20,6 +20,7 @@ public class ContactCreationTests extends TestBase {
         OtherData other = new OtherData().withWebsite("http://ya.ru").withAddress2("Address2").withHomePhone2("Home").withNoteText("Note");
         app.contact().create(names, bdata, phones, mails, other);
         app.goTo().contactPageBack();
+
         Contacts after = app.contact().all();
         assertEquals(after.size(), before.size() + 1);
         assertThat(after,
