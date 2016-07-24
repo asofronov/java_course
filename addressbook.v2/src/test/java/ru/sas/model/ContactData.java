@@ -1,36 +1,47 @@
 package ru.sas.model;
 
 public class ContactData {
-    private final String firstName;
-    private final String lastName;
-    private final String homePhone;
-    private final String mobilePhone;
-    private final String workPhone;
-    private final String email;
-    private int id;
+    private int id = Integer.MAX_VALUE;
+    private String firstName;
+    private String lastName;
+    private String homePhone;
+    private String mobilePhone;
+    private String workPhone;
+    private String email;
 
-    public ContactData(String firstName, String lastName, String homePhone, String mobilePhone, String workPhone, String email) {
-        this.id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.homePhone = homePhone;
-        this.mobilePhone = mobilePhone;
-        this.workPhone = workPhone;
-        this.email = email;
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
 
-    public ContactData(int id, String firstName, String lastName, String homePhone, String mobilePhone, String workPhone, String email) {
-        this.id = id;
+    public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.homePhone = homePhone;
-        this.mobilePhone = mobilePhone;
-        this.workPhone = workPhone;
-        this.email = email;
+        return this;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
+    public ContactData withMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
     }
 
     public int getId() {
