@@ -31,18 +31,24 @@ public class ContactHelper extends HelperBase {
         type(By.name("email"), contactData.getEmail());
     }
 
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         createContactLink();
         fillContactForm(contact);
         submitContactCreation();
         returnToContactPage();
     }
 
-    public void modifyContact(int index, ContactData modifiedContact) {
+    public void modify(int index, ContactData modifiedContact) {
         initContactModification(index);
         fillContactForm(modifiedContact);
         submitContactModification();
         returnToContactPage();
+    }
+
+    public void delete(int index) {
+        selectContact(index);
+        deleteContactButton();
+        submitContactDeletion();
     }
 
     public void createContactLink() {
@@ -74,11 +80,11 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public int getContactCount() {
+    public int getContactsCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.name("entry"));
         for (WebElement element : elements) {
