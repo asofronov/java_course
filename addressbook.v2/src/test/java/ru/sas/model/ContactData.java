@@ -7,14 +7,30 @@ public class ContactData {
     private final String mobilePhone;
     private final String workPhone;
     private final String email;
+    private String id;
 
     public ContactData(String firstName, String lastName, String homePhone, String mobilePhone, String workPhone, String email) {
+        this.id = null;
         this.firstName = firstName;
         this.lastName = lastName;
         this.homePhone = homePhone;
         this.mobilePhone = mobilePhone;
         this.workPhone = workPhone;
         this.email = email;
+    }
+
+    public ContactData(String id, String firstName, String lastName, String homePhone, String mobilePhone, String workPhone, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.homePhone = homePhone;
+        this.mobilePhone = mobilePhone;
+        this.workPhone = workPhone;
+        this.email = email;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -46,6 +62,7 @@ public class ContactData {
         return "ContactData{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 
@@ -57,7 +74,8 @@ public class ContactData {
         ContactData that = (ContactData) o;
 
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
-        return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
+        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        return id != null ? id.equals(that.id) : that.id == null;
 
     }
 
@@ -65,6 +83,7 @@ public class ContactData {
     public int hashCode() {
         int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
 }
