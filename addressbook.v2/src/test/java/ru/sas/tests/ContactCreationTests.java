@@ -13,11 +13,8 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() {
         app.getNavigationHelper().gotoContactPage();
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().createContactLink();
         ContactData contact = new ContactData("TestName", "LastName", "222-222-222", "333-333-333", "444-444-444", "test@test.ru");
-        app.getContactHelper().fillContactForm(contact);
-        app.getContactHelper().submitContactCreation();
-        app.getContactHelper().returnToContactPage();
+        app.getContactHelper().createContact(contact);
         List<ContactData> after = app.getContactHelper().getContactList();
         Assert.assertEquals(after.size(), before.size() + 1);
 
@@ -28,5 +25,4 @@ public class ContactCreationTests extends TestBase {
         Assert.assertEquals(before, after);
 
     }
-
 }

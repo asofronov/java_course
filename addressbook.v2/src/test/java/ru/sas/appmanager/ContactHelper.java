@@ -38,6 +38,13 @@ public class ContactHelper extends HelperBase {
         returnToContactPage();
     }
 
+    public void modifyContact(int index, ContactData modifiedContact) {
+        initContactModification(index);
+        fillContactForm(modifiedContact);
+        submitContactModification();
+        returnToContactPage();
+    }
+
     public void createContactLink() {
         click(By.linkText("add new"));
     }
