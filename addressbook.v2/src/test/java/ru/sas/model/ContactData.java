@@ -10,7 +10,7 @@ public class ContactData {
     private int id;
 
     public ContactData(String firstName, String lastName, String homePhone, String mobilePhone, String workPhone, String email) {
-        this.id = 0;
+        this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.lastName = lastName;
         this.homePhone = homePhone;
@@ -77,7 +77,6 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
-        if (id != that.id) return false;
         if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
         return lastName != null ? lastName.equals(that.lastName) : that.lastName == null;
 
@@ -87,8 +86,6 @@ public class ContactData {
     public int hashCode() {
         int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + id;
         return result;
     }
-
 }
