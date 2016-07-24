@@ -1,39 +1,36 @@
-package jc.sas.adressbook.model;
+package ru.sas.model;
 
 import com.google.common.collect.ForwardingSet;
 
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by aleks on 16.07.2016.
- */
-public class Contacts extends ForwardingSet<NamesData>{
+public class Contacts extends ForwardingSet<ContactData> {
 
-    private Set<NamesData> delegate;
+    private Set<ContactData> delegate;
 
     public Contacts(Contacts contacts) {
-        this.delegate = new HashSet<NamesData>(contacts.delegate);
+        this.delegate = new HashSet<ContactData>(contacts.delegate);
     }
 
     public Contacts() {
-        this.delegate = new HashSet<NamesData>();
+        this.delegate = new HashSet<ContactData>();
     }
 
-    public Contacts withAdded(NamesData contact) {
+    public Contacts withAdded(ContactData contact) {
         Contacts contacts = new Contacts(this);
         contacts.add(contact);
         return contacts;
     }
 
-    public Contacts without(NamesData contact) {
+    public Contacts without(ContactData contact) {
         Contacts contacts = new Contacts(this);
         contacts.remove(contact);
         return contacts;
     }
 
     @Override
-    protected Set<NamesData> delegate() {
+    protected Set<ContactData> delegate() {
         return delegate;
     }
 }

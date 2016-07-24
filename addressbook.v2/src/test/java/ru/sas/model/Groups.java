@@ -1,4 +1,4 @@
-package jc.sas.adressbook.model;
+package ru.sas.model;
 
 import com.google.common.collect.ForwardingSet;
 
