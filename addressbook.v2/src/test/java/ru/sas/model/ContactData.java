@@ -7,7 +7,22 @@ public class ContactData {
     private String homePhone;
     private String mobilePhone;
     private String workPhone;
+    private String allPhones;
     private String email;
+
+
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    private String address;
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;
@@ -70,6 +85,15 @@ public class ContactData {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getAllPhones() {
+
+        return allPhones;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     @Override
