@@ -74,6 +74,10 @@ public class ContactHelper extends HelperBase {
         wd.findElement(By.xpath(".//*[@id='" + id + "']/ ../../td[8]/a")).click();
     }
 
+    private void openDetailsPage(int id) {
+        wd.findElement(By.xpath(".//*[@id='" + id + "']/ ../../td[7]/a")).click();
+    }
+
     public void submitContactModification() {
         click(By.name("update"));
     }
@@ -117,5 +121,12 @@ public class ContactHelper extends HelperBase {
         return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
                 .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withAddress(address)
                 .withEmail1(email1).withEmail2(email2).withEmail3(email3);
+    }
+
+    public ContactData infoFromDetailsPage(ContactData contact) {
+        openDetailsPage(contact.getId());
+        String allDetails = wd.findElement(By.xpath(".//*[@id='content']")).getText();
+        wd.navigate().back();
+        return new ContactData().withId(contact.getId()).withAllDetails(allDetails);
     }
 }
