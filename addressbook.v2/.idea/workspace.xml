@@ -30,10 +30,11 @@
       <file leaf-file-name="GroupCreationTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/GroupCreationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+            <state relative-caret-position="221">
+              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
               <folding>
-                <element signature="e#504#514#0" expanded="true" />
+                <element signature="method#validGroups#0;class#GroupCreationTests#0" expanded="false" />
+                <element signature="e#541#551#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1091,9 +1092,6 @@
     <history-entry file="ContactCreationTests - 2016.07.27 at 22h 54m 08s.xml">
       <configuration name="ContactCreationTests" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="ContactDetailsTest - 2016.07.27 at 00h 09m 22s.xml">
-      <configuration name="ContactDetailsTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="ContactDetailsTest - 2016.07.27 at 00h 12m 58s.xml">
       <configuration name="ContactDetailsTest" configurationId="TestNG" />
     </history-entry>
@@ -1112,9 +1110,12 @@
     <history-entry file="GroupCreationTests - 2016.07.27 at 23h 58m 29s.xml">
       <configuration name="GroupCreationTests" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="GroupCreationTests - 2016.07.28 at 00h 15m 57s.xml">
+      <configuration name="GroupCreationTests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1595,10 +1596,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/GroupCreationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state relative-caret-position="221">
+          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding>
-            <element signature="e#504#514#0" expanded="true" />
+            <element signature="method#validGroups#0;class#GroupCreationTests#0" expanded="false" />
+            <element signature="e#541#551#0" expanded="true" />
           </folding>
         </state>
       </provider>
