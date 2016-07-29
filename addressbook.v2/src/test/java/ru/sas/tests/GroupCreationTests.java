@@ -8,7 +8,10 @@ import org.testng.annotations.Test;
 import ru.sas.model.GroupData;
 import ru.sas.model.Groups;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,33 +24,34 @@ public class GroupCreationTests extends TestBase {
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
-        List<Object[]> list = new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
-        String line = reader.readLine();
-        String xml = "";
-        while (line != null) {
-            xml += line;
-            line = reader.readLine();
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")))) {
+            String line = reader.readLine();
+            String xml = "";
+            while (line != null) {
+                xml += line;
+                line = reader.readLine();
+            }
+            XStream xstream = new XStream();
+            xstream.processAnnotations(GroupData.class);
+            List<GroupData> groups = (List<GroupData>) xstream.fromXML(xml);
+            return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
         }
-        XStream xstream = new XStream();
-        xstream.processAnnotations(GroupData.class);
-        List<GroupData> groups = (List<GroupData>)xstream.fromXML(xml);
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromJson() throws IOException {
-        List<Object[]> list = new ArrayList<Object[]>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
-        String line = reader.readLine();
-        String json = "";
-        while (line != null) {
-            json += line;
-            line = reader.readLine();
+        try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
+            String line = reader.readLine();
+            String json = "";
+            while (line != null) {
+                json += line;
+                line = reader.readLine();
+            }
+            Gson gson = new Gson();
+            List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {
+            }.getType());
+            return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
         }
-        Gson gson = new Gson();
-        List<GroupData> groups = gson.fromJson(json,new TypeToken<List<GroupData>>(){}.getType());
-        return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
     }
 
     @Test(dataProvider = "validGroupsFromJson")
