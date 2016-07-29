@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestGroups" verbose="1" >
+    <test name="Groups" >
+        <classes>
+            <class name="ru.sas.tests.GroupCreationTests" />
+            <class name="ru.sas.tests.GroupModificationTests" />
+            <class name="ru.sas.tests.GroupDeletionTests" />
+        </classes>
+    </test>
+</suite>
