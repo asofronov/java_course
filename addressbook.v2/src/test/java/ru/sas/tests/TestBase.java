@@ -5,10 +5,15 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ru.sas.appmanager.ApplicationManager;
 
+import java.io.IOException;
+
 public class TestBase {
 
 
-    protected ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    protected ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+
+    public TestBase() throws IOException {
+    }
 
     @BeforeSuite
     public void setUp() throws Exception {
