@@ -67,5 +67,4 @@ public class ContactCreationTests extends TestBase {
     }
 
 
-
 }
