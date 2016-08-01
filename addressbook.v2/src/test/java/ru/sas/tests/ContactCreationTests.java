@@ -7,7 +7,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.sas.model.ContactData;
 import ru.sas.model.Contacts;
-import ru.sas.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;

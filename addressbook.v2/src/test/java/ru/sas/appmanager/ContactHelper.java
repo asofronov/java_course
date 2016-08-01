@@ -3,10 +3,18 @@ package ru.sas.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.sas.model.ContactData;
 import ru.sas.model.Contacts;
+import ru.sas.model.GroupData;
+import ru.sas.model.Groups;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactHelper extends HelperBase {
 
@@ -22,7 +30,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("address"), contactData.getAddress());
@@ -30,21 +38,31 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobilePhone());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmail1());
-        type(By.name("email2"),contactData.getEmail2());
-        type(By.name("email3"),contactData.getEmail3());
+        type(By.name("email2"), contactData.getEmail2());
+        type(By.name("email3"), contactData.getEmail3());
         attach(By.name("photo"), contactData.getPhoto());
+
+        if (creation) {
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
+
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
     }
 
     public void create(ContactData contact) {
         createContactLink();
-        fillContactForm(contact);
+        fillContactForm(contact, true);
         submitContactCreation();
         returnToContactPage();
     }
 
     public void modify(ContactData contact) {
         initContactModification(contact.getId());
-        fillContactForm(contact);
+        fillContactForm(contact, false);
         submitContactModification();
         returnToContactPage();
     }
@@ -130,4 +148,11 @@ public class ContactHelper extends HelperBase {
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withAllDetails(allDetails);
     }
+
+    public void addGroup(ContactData contact, GroupData group) {
+        selectContactById(contact.getId());
+        selectFromDropDownList(".//*[@id='content']/form[2]/div[4]/select", group.getName());
+        click(By.name("add"));
+    }
+
 }
