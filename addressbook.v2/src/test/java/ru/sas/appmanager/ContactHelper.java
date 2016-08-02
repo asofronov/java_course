@@ -152,5 +152,13 @@ public class ContactHelper extends HelperBase {
         click(By.name("add"));
     }
 
+    public void deleteGroup(ContactData contact, GroupData group) {
+        app.goTo().contactPage();
+        selectFromDropDownList(".//*[@id='right']/select", group.getName());
+        selectContactById(contact.getId());
+        click(By.name("remove"));
+        app.goTo().contactPage();
+    }
+
 
 }

@@ -27,11 +27,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AddContactToGroupTests.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/AddContactToGroupTests.java">
+      <file leaf-file-name="DeleteContactFromGroupTests.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/DeleteContactFromGroupTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="425">
+              <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactCreationTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactCreationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#validContactsFromXml#0;class#ContactCreationTests#0" expanded="false" />
+                <element signature="method#validContactsFromJson#0;class#ContactCreationTests#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactModificationTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactModificationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="16" column="37" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupModificationTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/GroupModificationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/appmanager/ContactHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="159" column="33" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -426,9 +472,10 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/sas/model/ContactData.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/sas/model/GroupData.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/sas/model/Contacts.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ru/sas/appmanager/ContactHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactModificationTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/sas/tests/AddContactToGroupTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/sas/appmanager/ContactHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ru/sas/tests/DeleteContactFromGroupTests.java" />
       </list>
     </option>
   </component>
@@ -658,7 +705,7 @@
       <recent name="ru.sas" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.AddContactToGroupTests">
+  <component name="RunManager" selected="TestNG.DeleteContactFromGroupTests">
     <configuration default="false" name="GroupCreationTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -725,39 +772,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="ContactCreationTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ru.sas.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="addressbook.v2_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="ru.sas.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.sas.tests.ContactCreationTests" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
     <configuration default="false" name="ContactDeletion" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -804,6 +818,39 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="ru.sas.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.sas.tests.AddContactToGroupTests" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="DeleteContactFromGroupTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ru.sas.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="addressbook.v2_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="ru.sas.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.sas.tests.DeleteContactFromGroupTests" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -1086,17 +1133,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="TestNG.GroupCreationTests" />
       <item index="1" class="java.lang.String" itemvalue="TestNG.GroupModificationTests" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.ContactCreationTests" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.ContactDeletion" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.AddContactToGroupTests" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.ContactDeletion" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.AddContactToGroupTests" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.DeleteContactFromGroupTests" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.AddContactToGroupTests" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.GroupCreationTests" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.GroupModificationTests" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.ContactDeletion" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.ContactCreationTests" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.DeleteContactFromGroupTests" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.AddContactToGroupTests" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.GroupCreationTests" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.GroupModificationTests" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.ContactDeletion" />
       </list>
     </recent_temporary>
   </component>
@@ -1117,40 +1164,40 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 47m 09s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 48m 03s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 49m 22s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 53m 02s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 56m 15s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 56m 35s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 19h 57m 02s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="AddContactToGroupTests - 2016.08.02 at 20h 03m 58s.xml">
-      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="AddContactToGroupTests - 2016.08.02 at 20h 04m 35s.xml">
       <configuration name="AddContactToGroupTests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="AddContactToGroupTests - 2016.08.02 at 20h 06m 00s.xml">
       <configuration name="AddContactToGroupTests" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="AddContactToGroupTests - 2016.08.02 at 20h 27m 51s.xml">
+      <configuration name="AddContactToGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 28m 12s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 29m 56s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 30m 32s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 31m 42s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 32m 33s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 33m 17s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteContactFromGroupTests - 2016.08.02 at 20h 34m 18s.xml">
+      <configuration name="DeleteContactFromGroupTests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1161,7 +1208,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3672806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3672806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1202,13 +1249,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/model/ContactData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/appmanager/ContactHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1425,6 +1465,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+          <folding>
+            <element signature="method#validGroupsFromXml#0;class#GroupCreationTests#0" expanded="false" />
+            <element signature="method#validGroupsFromJson#0;class#GroupCreationTests#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1554,14 +1598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/GroupModificationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="31" selection-start-line="14" selection-start-column="8" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testFile-20160802T194915.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-24543">
@@ -1570,10 +1606,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/AddContactToGroupTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactCreationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="40" column="73" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="73" />
+        <state relative-caret-position="323">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#validContactsFromXml#0;class#ContactCreationTests#0" expanded="false" />
@@ -1582,28 +1628,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactModificationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/appmanager/ContactHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        <state relative-caret-position="479">
+          <caret line="159" column="33" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/AddContactToGroupTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/GroupModificationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/ContactModificationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="16" column="37" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/sas/tests/DeleteContactFromGroupTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
