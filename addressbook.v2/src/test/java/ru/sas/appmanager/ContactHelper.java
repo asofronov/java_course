@@ -8,13 +8,10 @@ import org.testng.Assert;
 import ru.sas.model.ContactData;
 import ru.sas.model.Contacts;
 import ru.sas.model.GroupData;
-import ru.sas.model.Groups;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static ru.sas.tests.TestBase.app;
 
 public class ContactHelper extends HelperBase {
 
@@ -154,5 +151,6 @@ public class ContactHelper extends HelperBase {
         selectFromDropDownList(".//*[@id='content']/form[2]/div[4]/select", group.getName());
         click(By.name("add"));
     }
+
 
 }
